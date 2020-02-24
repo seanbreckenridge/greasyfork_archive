@@ -2,7 +2,7 @@
 
 Scrape data from a users Greasyfork account.
 
-For a given user, for each script that users created, scrapes:
+For a given user, for each installable script that users created, scrapes:
 
 ```
 script name
@@ -21,6 +21,8 @@ description
 url
 code (the script contents)
 ```
+
+This does not scrape the script code for items that can't be installed directly, e.g. [this](https://greasyfork.org//en/scripts/36108-sortable-js/code)
 
 ##### Example
 

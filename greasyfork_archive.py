@@ -1,7 +1,7 @@
 import sys
 import json
 import time
-from typing import List, Callable, Mapping
+from typing import List, Callable, Mapping, Optional
 
 import click
 import requests
@@ -99,7 +99,10 @@ class UserScript:
                 err=True,
             )
             sys.exit(1)
-        self.code = request_url(self.get_raw_script_code_link()).text
+        self.code = None
+        raw_code_link = self.get_raw_script_code_link()
+        if raw_code_link is not None:
+            self.code = request_url(raw_code_link).text
 
     def __repr__(self) -> str:
         assert self.__class__.attrs is not None  # type: ignore
@@ -124,14 +127,16 @@ class UserScript:
     def code_url(self) -> str:
         return f"{self.url}/code"
 
-    def get_raw_script_code_link(self) -> str:
+    def get_raw_script_code_link(self) -> Optional[str]:
         resp: requests.Response = request_url(self.code_url)
         code_soup = bs4.BeautifulSoup(resp.text, "html.parser")
         install_links: List[bs4.element.PageElement] = code_soup.find_all(
             "a", attrs={"class": "install-link"}, href=True
         )
-        assert len(install_links) >= 1
-        return f"{BASE_GREASYFORK_URL}/{install_links[0]['href']}"
+        if len(install_links) == 0:
+            return None
+        else:
+            return f"{BASE_GREASYFORK_URL}/{install_links[0]['href']}"
 
 
 def get_user_scripts(user_url: str) -> List[bs4.element.PageElement]:
