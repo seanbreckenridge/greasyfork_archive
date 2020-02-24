@@ -1,0 +1,14 @@
+language: python
+dist: xenial
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+  - "3.9-dev"
+before_install:
+  - python3 -m pip install pytest vcrpy
+install:
+  - python3 setup.py install
+script:
+ - pytest
+

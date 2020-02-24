@@ -1,0 +1,4 @@
+requests>=2.23.0
+Click>=7.0
+beautifulsoup4>=4.8.2
+backoff>=1.10.0
