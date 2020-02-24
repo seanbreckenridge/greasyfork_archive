@@ -12,6 +12,7 @@ Scrape data from a users Greasyfork account.
 For a given user, for each installable script that users created, scrapes:
 
 ```
+script id
 script name
 script authors
 daily installs

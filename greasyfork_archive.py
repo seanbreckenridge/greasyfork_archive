@@ -48,6 +48,7 @@ class UserScript:
     """
 
     attrs = [
+        "script_id",
         "script_name",
         "script_authors",
         "daily_installs",
