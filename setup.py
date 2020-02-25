@@ -10,7 +10,7 @@ with io.open("README.md", encoding="utf-8") as fo:
 
 setup(
     name="greasyfork_archive",
-    version="0.1.1",
+    version="0.1.2",
     url="https://github.com/seanbreckenridge/greasyfork_archive",
     author="Sean Breckenridge",
     author_email="seanbrecke@gmail.com",

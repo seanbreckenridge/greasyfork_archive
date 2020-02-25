@@ -30,11 +30,13 @@ url
 code (the script contents)
 ```
 
-This does not scrape the script code for items that can't be installed directly, e.g. [this](https://greasyfork.org//en/scripts/36108-sortable-js/code)
+This does not scrape the script code for items that can't be installed directly, e.g. [this](https://greasyfork.org//en/scripts/36108-sortable-js/code).
 
 ##### Example
 
 `greasyfork_archive 106222 --output-file scraped_data.json`
+
+This would scrape information for the user https://greasyfork.org/en/users/106222
 
 ### Installation
 

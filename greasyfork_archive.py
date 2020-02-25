@@ -71,7 +71,7 @@ class UserScript:
 
         links = self.el.find_all("a", href=True)
         assert len(links) >= 1
-        self.url = f"{BASE_GREASYFORK_URL}/{links[0]['href']}"
+        self.url = f"{BASE_GREASYFORK_URL}{links[0]['href']}"
         description = self.el.find_all("span", {"class": "description"})
         assert len(description) == 1
         self.description = description[0].text.strip()
