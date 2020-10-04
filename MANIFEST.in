@@ -2,6 +2,7 @@ include LICENSE
 include README.md
 include requirements.txt
 exclude Makefile
+include mypy.ini
 exclude .travis.yml
 
 recursive-exclude * __pycache__
