@@ -3,8 +3,8 @@ include README.md
 include requirements.txt
 exclude Makefile
 include mypy.ini
-exclude .travis.yml
+recursive-include tests *.py
+recursive-include tests *.yaml
 
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
-recursive-exclude tests

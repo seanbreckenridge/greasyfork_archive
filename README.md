@@ -2,9 +2,7 @@
 
 [![PyPi version](https://img.shields.io/pypi/v/greasyfork_archive.svg)](https://pypi.org/project/greasyfork-archive) 
 [![Python 3.6|3.7|3.8|3.9](https://img.shields.io/pypi/pyversions/greasyfork_archive.svg)](https://pypi.org/project/greasyfork-archive)
-[![Build Status](https://travis-ci.com/seanbreckenridge/greasyfork_archive.svg?branch=master)](https://travis-ci.com/seanbreckenridge/greasyfork_archive)
-[![PRs
-Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 
 Scrape data from a users Greasyfork account.
