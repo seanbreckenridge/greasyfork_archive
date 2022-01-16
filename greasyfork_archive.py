@@ -17,6 +17,12 @@ BASE_USER_URL = f"{BASE_GREASYFORK_ENGLISH_URL}/users"
 get_user_url: Callable[[int], str] = lambda user_id: f"{BASE_USER_URL}/{user_id}"
 
 
+def prepend_greasyfork_base(url: str) -> str:
+    if not url.startswith(BASE_GREASYFORK_URL):
+        return f"{BASE_GREASYFORK_URL}/{url}"
+    return url
+
+
 def backoff_hdlr(details: Dict[str, Any]) -> None:
     click.echo(
         "Backing off {wait:0.1f} seconds afters {tries} tries "
@@ -71,7 +77,7 @@ class UserScript:
 
         links = self.el.find_all("a", href=True)
         assert len(links) >= 1
-        self.url = f"{BASE_GREASYFORK_URL}{links[0]['href']}"
+        self.url = prepend_greasyfork_base(links[0]["href"])
         description = self.el.find_all("span", {"class": "description"})
         assert len(description) == 1
         self.description = description[0].text.strip()
@@ -137,7 +143,7 @@ class UserScript:
         if len(install_links) == 0:
             return None
         else:
-            return f"{BASE_GREASYFORK_URL}/{install_links[0]['href']}"
+            return prepend_greasyfork_base(install_links[0]["href"])
 
 
 def get_user_scripts(user_url: str) -> List[bs4.element.PageElement]:
@@ -178,3 +184,7 @@ def main_wrapper(greasyfork_user_id: int, output_file: str) -> int:
 )
 def main(greasyfork_user_id: int, output_file: str) -> None:
     sys.exit(main_wrapper(greasyfork_user_id, output_file))
+
+
+if __name__ == "__main__":
+    main()
