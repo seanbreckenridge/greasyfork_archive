@@ -19,12 +19,12 @@ def test_response(patched_sleep):
         jscripts = json.load(json_dump)
     scripts = jscripts["greasyfork_scripts"]
     assert isinstance(scripts, list)
-    assert len(scripts) == 20
+    assert len(scripts) == 21
     first_entry = scripts[0]
     assert first_entry["script_id"] ==  26678
     assert first_entry["script_name"] == "MyAnimeList Remove Unnecessary Spacing"
-    assert first_entry["daily_installs"] == 1
-    assert first_entry["total_installs"] == 109
+    assert first_entry["daily_installs"] == 0
+    assert first_entry["total_installs"] == 167
     assert first_entry["rating_score"] == 5.0
     assert first_entry["created_date"] == '2017-01-19'
     assert first_entry["updated_date"] == '2019-02-01'
